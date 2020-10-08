@@ -13,12 +13,12 @@ export default class Pokemon {
         id: number,
         hp: number = 100,
         cp: number = 10,
-        name: string = 'name',
-        picture: string = 'http://...',
+        name: string = '...',
+        picture: string = 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/...',
         types: Array<string> = ['Normal'],
         created: Date = new Date()
     ) {
-        // 3. Initialisation des propiétés d'un pokémons.
+        // 3. Initialisation des propriétés d'un pokémons.
         this.id = id;
         this.hp = hp;
         this.cp = cp;
