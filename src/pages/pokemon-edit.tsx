@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import Loader from 'src/components/loader';
 import PokemonService from 'src/services/pokemon-service';
 import PokemonForm from '../components/pokemon-form';
 import Pokemon from '../models/pokemon';
@@ -12,9 +13,9 @@ const PokemonEdit: FunctionComponent<RouteComponentProps<Params>> = ({ match }) 
 
     useEffect(() => {
         PokemonService.getPokemon(+match.params.id)
-        .then((pokemon) => {
-            setPokemon(pokemon)
-        })
+            .then((pokemon) => {
+                setPokemon(pokemon)
+            })
     }, [match.params.id]);
 
     return (
@@ -25,7 +26,9 @@ const PokemonEdit: FunctionComponent<RouteComponentProps<Params>> = ({ match }) 
                     <PokemonForm pokemon={pokemon} isEdit={true}></PokemonForm>
                 </div>
             ) : (
-                <h4 className="center">Aucun pokémon à afficher !</h4>
+                <h4 className="center">
+                    <Loader />
+                </h4>
             )}
         </div>
     );
