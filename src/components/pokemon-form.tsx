@@ -175,7 +175,7 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEdit = false}) => {
             <div className="row">
                 <div className="col s12 m8 offset-m2">
                     <div className="card hoverable">
-                        { !isAddForm && (
+                        { !isAddForm() && (
                             <div className="card-image">
                                 <img src={pokemon.picture} alt={pokemon.name} style={{ width: '250px', margin: '0 auto' }} />
                                 <span className="btn-floating halfway-fab waves-effect waves-light">
@@ -186,7 +186,7 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon, isEdit = false}) => {
                         <div className="card-stacked">
                             <div className="card-content">
                                 {/* Pokemon picture */}
-                                { isAddForm && (
+                                { isAddForm() && (
                                 <div className="form-group">
                                     <label htmlFor="picture">Image</label>
                                     <input id="picture" name="picture" type="text" className="form-control" value={form.picture.value} onChange={e => handleInputChange(e)}></input>
